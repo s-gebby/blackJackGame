@@ -9,6 +9,7 @@ if (age < 21) {
 
 let firstCard = 1;
 let secondCard = 11;
+let cards = [firstCard, secondCard];
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
 let isAlive = true;
@@ -18,7 +19,7 @@ let sumEl = document.getElementById("sum-el");
 let cardsEl = document.getElementById("cards-el");
 
 function renderGame() {
-  cardsEl.textContent = "Cards: " + firstCard + " " + secondCard;
+  cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1];
   sumEl.textContent = "Sum: " + sum;
   if (sum <= 20) {
     message = "Do you want to draw a new card? 🙂";
@@ -35,6 +36,7 @@ function renderGame() {
 function newCard() {
   let card = 6;
   sum += card;
+  cards.push(card);
   renderGame();
 }
 

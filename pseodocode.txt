@@ -1,0 +1,9 @@
+THIS IS ALL AFTER PROJECT IS OVER IMPLEMENTATION!!!
+
+1. I want to incorporate a way to bet or wager chips or fake amounts of money. 
+
+2. Add in the prompted screen asking for your age
+
+3. Add in a leaderboard
+
+4. Add a way to hold your cards and go against the house.

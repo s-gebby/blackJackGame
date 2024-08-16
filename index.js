@@ -6,7 +6,6 @@ if (age < 21) {
 } else {
   console.log("Welcome!");
 }
-
 let player = {
   name: "Per",
   chips: 1000,
@@ -49,7 +48,7 @@ function renderGame() {
   }
   sumEl.textContent = "Sum: " + sum;
   if (sum <= 20) {
-    message = "Do you want to draw a new card? 🙂";
+    message = "Do you want to draw a new card?";
   } else if (sum === 21) {
     message = "Wohoo! You've got Blackjack! 🥳";
     hasBlackJack = true;

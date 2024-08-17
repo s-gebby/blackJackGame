@@ -6,6 +6,8 @@ if (age < 21) {
 } else {
   console.log("Welcome!");
 }
+
+
 let player = {
   name: "Per",
   chips: 1000,

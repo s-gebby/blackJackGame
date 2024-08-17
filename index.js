@@ -31,11 +31,11 @@ playerEl.textContent = player.name + ": $" + player.chips;
 function getRandomCard() {
   let randomNumber = Math.floor(Math.random() * 13) + 1;
   if (randomNumber > 10) {
-    return10;
+    return 10;  // Face cards (J, Q, K) are valued at 10
   } else if (randomNumber === 1) {
-    return11;
+    return 11;  // Ace is valued at 11
   } else {
-    return randomNumber;
+    return randomNumber;  // 2-10 are valued at their face value
   }
 }
 

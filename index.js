@@ -6,12 +6,6 @@ if (age < 21) {
   console.log("Welcome!");
 }
 
-let player = {
-  name: "Per",
-  chips: 1000,
-  bet: 0,
-};
-
 let cards = [];
 let sum = 0;
 let hasBlackJack = false;
@@ -89,25 +83,6 @@ function newCard() {
   }
 }
 
-function placeBet(amount) {
-  if (amount <= player.chips && amount > 0) {
-    player.bet = amount;
-    player.chips -= amount;
-    playerEl.textContent = `${player.name}: $${player.chips}`;
-    messageEl.textContent = `You placed a bet of $${player.bet}. Good Luck!`
-  } else {
-    messageEl.textContent = "You don't have enough chips for that bet!"
-  }
-}
-
-function startGameWithBet() {
-  let betAmount = parseInt(document.getElementById("bet-amount").value);
-  placeBet(betAmount);
-  if (player.bet > 0) {
-    startGame();
-  }
-}
-
 function hold() {
   if (isAlive && !hasBlackJack) {
     message = "You chose to hold. Dealer's turn.";
@@ -127,23 +102,20 @@ function dealerTurn() {
     // Reveal dealer's full hand
     dealerEl.textContent = "Dealer's Cards: " + dealerCards.join(" ") + " (Sum: " + dealerSum + ")";
 
+    determineWinner();
 }
 
 function determineWinner() {
     if (dealerSum > 21 || (sum <= 21 && sum > dealerSum)) {
         message = "You win! 🥳";
-        player.chips += player.bet * 2; // Player wins the bet
     } else if (dealerSum === sum) {
         message = "It's a tie! 😐";
-        player.chips += player.bet; // Return the bet
     } else {
         message = "Dealer wins! 😭";
     }
 
-    player.bet = 0; // Reset the bet
     isAlive = false; // End the game
     hasBlackJack = false;
     
-    playerEl.textContent = `${player.name}: $${player.chips}`;
     messageEl.textContent = message;
 }

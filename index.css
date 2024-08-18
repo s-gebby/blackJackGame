@@ -1,11 +1,15 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  background-color: darkgreen;
   background-size: cover;
   text-align: center;
   color: white;
   font-weight: bold;
+  background-image: url('tim-vfx--wzSKSb9K9g-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -27,4 +31,45 @@ button {
   border-radius: 2px;
   margin-bottom: 2px;
   margin-top: 2px;
+  font-size: 18px;
+}
+
+/* Container for directions */
+#directions-container {
+  background-color: rgba(0, 100, 0, 0.8);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: left;
+}
+
+/* Styling for headings */
+#directions-container h3 {
+  color: goldenrod;
+  margin-top: 20px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* Styling for paragraphs */
+#directions-container p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Styling for bold text */
+#directions-container strong {
+  color: rgb(255, 76, 76);
+}
+
+#game-container {
+  background-color: rgba(0, 100, 0, 0.8);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

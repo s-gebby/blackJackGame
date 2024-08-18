@@ -5,21 +5,36 @@
     <link rel="stylesheet" href="index.css" />
     <title>Blackjack Game</title>
   </head>
-  <body>
-    <h1>Blackjack</h1>
-    <p id="message-el">Want to play a round?</p>
-    <p id="cards-el">Cards:</p>
-    <p id="sum-el">Sum:</p>
-    <p id="dealer-el">Dealer's Cards:</p>
-    <button type="button" onclick="startGame()">START GAME</button>
-    <br>
-    <button type="button" onclick="newCard()">NEW CARD</button>
-    <br>
-    <button type="button"onclick="hold()">HOLD</button>
+  <div>
+    <div id="game-container">
+      <h1>Blackjack</h1>
+      <h2 id="message-el">Want to play a round?</h2>
+      <h3 id="cards-el">Cards:</h3>
+      <h3 id="sum-el">Sum:</h3>
+      <h3 id="dealer-el">Dealer's Cards:</h3>
+      <button type="button" onclick="startGame()">START GAME</button>
+      <br>
+      <button type="button" onclick="newCard()">NEW CARD</button>
+      <br>
+      <button type="button"onclick="hold()">HOLD</button>
+  </div>
 
     <p id="player-el"></p>
-    <h3>Directions:
-    </h3>
+    <div id="directions-container">
+      <h3>Objective:<br>
+      </h3>
+      <p>The goal of Blackjack is to beat the dealer by having a hand value closest to 21 without exceeding it.</p>
+      <h3>How To Play:<br>
+      </h3>
+      <p>Start the Game: Click the <strong>"START GAME"</strong> button to begin. You and the dealer will each receive two cards. One of the dealer’s cards will be face-up, and the other face-down.</p>
+      <p>Draw a Card: If you want to draw another card to increase your hand's total, click <strong>"NEW CARD."</strong> Be careful! If your total exceeds 21, you go "bust" and lose the round.</p>
+      <p>Hold: If you are satisfied with your total, click <strong>"HOLD"</strong> to end your turn. The dealer will then reveal their hidden card and draw additional cards if their total is below 17.</p>
+      <h3>Winning the Game:<br></h3>
+      <p>Blackjack: If your initial two cards total 21, you get a <strong>"BLACKJACK"</strong> and win automatically, unless the dealer also has 21, in which case it’s a tie.</p>
+      <p>Compare Totals: After you hold, the dealer reveals their cards. If the dealer's total exceeds 21, you win. If not, the hand closest to 21 wins. If your total equals the dealer's, the round ends in a tie.</p>
+      <h3>Game Over:<br></h3>
+      <p>The game ends when you either hold or go bust. The outcome will be displayed, and you can start a new game by clicking <strong>"START GAME"</strong> again.</p>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

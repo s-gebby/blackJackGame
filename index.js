@@ -119,3 +119,16 @@ function determineWinner() {
     
     messageEl.textContent = message;
 }
+
+function toggleDirections() {
+  directionsContainer = document.getElementById("directions-container");
+  toggleButton = document.getElementById("toggle-directions");
+
+  if (directionsContainer.style.display === "none") {
+      directionsContainer.style.display = "block";
+      toggleButton.textContent = "Hide Directions";
+  } else {
+      directionsContainer.style.display = "none";
+      toggleButton.textContent = "Show Directions";
+  }
+}

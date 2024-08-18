@@ -20,7 +20,9 @@
   </div>
 
     <p id="player-el"></p>
-    <div id="directions-container">
+    <button id="toggle-directions" onclick="toggleDirections()">Show Directions</button>
+
+    <div id="directions-container" style="display: none;">
       <h3>Objective:<br>
       </h3>
       <p>The goal of Blackjack is to beat the dealer by having a hand value closest to 21 without exceeding it.</p>
@@ -33,7 +35,7 @@
       <p>Blackjack: If your initial two cards total 21, you get a <strong>"BLACKJACK"</strong> and win automatically, unless the dealer also has 21, in which case it’s a tie.</p>
       <p>Compare Totals: After you hold, the dealer reveals their cards. If the dealer's total exceeds 21, you win. If not, the hand closest to 21 wins. If your total equals the dealer's, the round ends in a tie.</p>
       <h3>Game Over:<br></h3>
-      <p>The game ends when you either hold or go bust. The outcome will be displayed, and you can start a new game by clicking <strong>"START GAME"</strong> again.</p>
+      <p>The game ends when you either hold or bust. The outcome will be displayed, and you can start a new game by clicking <strong>"START GAME"</strong> again!</p>
     </div>
     <script src="index.js"></script>
   </body>

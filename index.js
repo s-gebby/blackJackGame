@@ -58,17 +58,20 @@ function renderGame() {
 
   dealerEl.textContent = "Dealer's Cards: " + dealerCards[0] + " ?";
 
-  if (sum <= 20) {
-    message = "Do you want to draw a new card?";
+  if (sum < 21) {
+      message = "Do you want to draw a new card?";
   } else if (sum === 21) {
-    message = "Wohoo! You've got Blackjack! 🥳";
-    hasBlackJack = true;
-    dealerTurn(); // Let the dealer have a chance to draw as well
-  } else {
-    message = "You're out of the game! 😭";
-    isAlive = false;
-    dealerTurn(); // Let the dealer draw cards and determine the winner
+      message = "Wohoo! You've got Blackjack! 🥳";
+      hasBlackJack = true;
+      dealerTurn(); // Let the dealer have a chance to draw as well
+  } else if (sum > 21) { // Player goes bust
+      message = "You're out of the game! 😭";
+      isAlive = false;
+      messageEl.textContent = message;
+      return; // End the game immediately if the player busts
   }
+
+  messageEl.textContent = message;
 
   messageEl.textContent = message;
   playerEl.textContent = `${player.name}: $${player.chips}`;
@@ -92,32 +95,36 @@ function hold() {
 }
 
 function dealerTurn() {
-    // Dealer must hit if sum is below 17 
-        while (dealerSum < 17) {
-        let card = getRandomCard();
-        dealerCards.push(card);
-        dealerSum += card;
-    }
+  if (!isAlive) return; // Don't proceed with dealer's turn if player is already out
 
-    // Reveal dealer's full hand
-    dealerEl.textContent = "Dealer's Cards: " + dealerCards.join(" ") + " (Sum: " + dealerSum + ")";
+  // Dealer must hit if sum is below 17 
+  while (dealerSum < 17) {
+      let card = getRandomCard();
+      dealerCards.push(card);
+      dealerSum += card;
+  }
 
-    determineWinner();
+  // Reveal dealer's full hand
+  dealerEl.textContent = "Dealer's Cards: " + dealerCards.join(" ") + " (Sum: " + dealerSum + ")";
+
+  determineWinner();
 }
 
 function determineWinner() {
-    if (dealerSum > 21 || (sum <= 21 && sum > dealerSum)) {
-        message = "You win! 🥳";
-    } else if (dealerSum === sum) {
-        message = "It's a tie! 😐";
-    } else {
-        message = "Dealer wins! 😭";
-    }
+  if (sum > 21) { // If player busts, they lose immediately
+      message = "You're out of the game! 😭";
+  } else if (dealerSum > 21 || (sum <= 21 && sum > dealerSum)) {
+      message = "You win! 🥳";
+  } else if (dealerSum === sum) {
+      message = "It's a tie! 😐";
+  } else {
+      message = "Dealer wins! 😭";
+  }
 
-    isAlive = false; // End the game
-    hasBlackJack = false;
-    
-    messageEl.textContent = message;
+  isAlive = false; // End the game
+  hasBlackJack = false;
+  
+  messageEl.textContent = message;
 }
 
 function toggleDirections() {
